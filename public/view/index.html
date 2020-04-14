@@ -7,6 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    My socket
+    <span id="connection"></span>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.on('connect',()=>{
+      console.log("connected to server");
+      
+      document.getElementById('connection').innerHTML =  "connected to server";
+  })
+
+  socket.on('disconnect',()=>{
+      console.log("disconnected  to server");
+      
+      document.getElementById('connection').innerHTML =  "server is down";
+  })
+</script>
 </body>
 </html>
